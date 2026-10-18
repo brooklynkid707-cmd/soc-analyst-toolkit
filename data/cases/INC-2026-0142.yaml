@@ -1,0 +1,98 @@
+# Synthetic incident case file consumed by `python -m soctk report`
+id: INC-2026-0142
+title: Macro phishing leading to credential dumping on WS-FIN-017
+severity: high
+status: Closed - eradicated
+classification: TLP:AMBER
+incident_type: Phishing -> malware execution -> credential access
+analyst: J. Scirica (Tier 2)
+detection_source: EDR (Suspicious Office child process) + user phishing report
+
+summary: |
+  On 2026-10-14 a finance analyst (mrivera) opened a macro-enabled invoice attached to
+  a phishing e-mail impersonating a vendor. The macro launched an encoded PowerShell
+  loader that retrieved a DLL from update-service.example.net and established a 15-minute
+  HTTPS beacon to 203.0.113.45. EDR observed the DLL opening a handle to LSASS and the host
+  was network-isolated 44 minutes after initial execution. No lateral movement or data
+  exfiltration was identified. The user's credentials were reset and the host reimaged.
+
+impact: |
+  One finance workstation compromised; one user credential presumed exposed and rotated.
+  No evidence of access to finance systems with the exposed credential. Business impact: ~4h
+  of analyst downtime.
+
+root_cause: |
+  Macro execution was permitted for files downloaded from the internet because the
+  Mark-of-the-Web blocking policy was not enforced on the finance OU.
+
+key_times:
+  first_activity: "2026-10-14T08:14:00Z"
+  detected: "2026-10-14T08:24:05Z"
+  contained: "2026-10-14T08:58:00Z"
+  eradicated: "2026-10-14T11:30:00Z"
+  recovered: "2026-10-14T13:05:00Z"
+  closed: "2026-10-16T16:00:00Z"
+
+affected_assets:
+  - {host: WS-FIN-017, user: mrivera, criticality: high, status: reimaged}
+
+timeline:
+  - {time: "2026-10-14T08:14:00Z", source: mail-gateway, event: "Phishing e-mail 'Invoice Q3-8812 overdue' delivered from invoice-team@cdn-assets-example.com", entity: mrivera}
+  - {time: "2026-10-14T08:23:40Z", source: process, event: "WINWORD.EXE opened Invoice_Q3_8812.docm from Downloads", entity: WS-FIN-017}
+  - {time: "2026-10-14T08:24:02Z", source: process, event: "WINWORD.EXE -> cmd.exe -> powershell.exe -enc (hidden window)", entity: WS-FIN-017}
+  - {time: "2026-10-14T08:24:05Z", source: edr, event: "Detection: Suspicious Office child process (alert ALT-1002)", entity: WS-FIN-017}
+  - {time: "2026-10-14T08:26:05Z", source: network, event: "HTTPS to 203.0.113.45 (update-service.example.net), first beacon", entity: WS-FIN-017}
+  - {time: "2026-10-14T08:41:00Z", source: edr, event: "Detection: LSASS handle opened by rundll32.exe (upd.dll)", entity: WS-FIN-017}
+  - {time: "2026-10-14T08:55:00Z", source: process, event: "schtasks /create OneDriveUpd every 15 min (persistence)", entity: WS-FIN-017}
+  - {time: "2026-10-14T08:58:00Z", source: edr, event: "Host network-isolated by Tier 2", entity: WS-FIN-017}
+  - {time: "2026-10-14T09:10:00Z", source: idp, event: "Password reset + sessions revoked for mrivera", entity: mrivera}
+
+iocs:
+  - {type: email, value: invoice-team@cdn-assets-example.com, context: Phishing sender, action: Blocked at gateway}
+  - {type: domain, value: cdn-assets-example.com, context: Phishing landing / payload host, action: DNS sinkhole}
+  - {type: domain, value: update-service.example.net, context: C2 domain, action: DNS sinkhole + proxy block}
+  - {type: ipv4, value: 203.0.113.45, context: C2 server (beacon every 15 min), action: Firewall block}
+  - {type: sha256, value: 9f2c1e8ab7d64c3f0a5e2b19d8c7f6a4e3b2c1d0f9e8d7c6b5a4f3e2d1c0b9a8, context: Invoice_Q3_8812.docm, action: EDR blocklist}
+  - {type: sha256, value: 4b1d0e8c6f2a9b3c7d5e1f0a8b6c4d2e9f7a5b3c1d0e8f6a4b2c0d8e6f4a2b1c, context: upd.dll loader, action: EDR blocklist}
+
+attack:
+  - {tactic: TA0001, technique: T1566.001, name: "Phishing: Spearphishing Attachment", evidence: "Macro-enabled .docm from lookalike vendor domain"}
+  - {tactic: TA0002, technique: T1204.002, name: "User Execution: Malicious File", evidence: "User enabled macros"}
+  - {tactic: TA0002, technique: T1059.001, name: "Command and Scripting Interpreter: PowerShell", evidence: "-enc -w hidden -nop loader"}
+  - {tactic: TA0005, technique: T1218.011, name: "System Binary Proxy Execution: Rundll32", evidence: "rundll32.exe upd.dll,Start"}
+  - {tactic: TA0011, technique: T1071.001, name: "Application Layer Protocol: Web Protocols", evidence: "HTTPS beacon every 15 min to 203.0.113.45"}
+  - {tactic: TA0006, technique: T1003.001, name: "OS Credential Dumping: LSASS Memory", evidence: "EDR LSASS handle detection"}
+  - {tactic: TA0003, technique: T1053.005, name: "Scheduled Task/Job: Scheduled Task", evidence: "OneDriveUpd task"}
+
+response:
+  detection_analysis:
+    - "Triaged ALT-1002 (P1) with `soctk triage`; grouped with 6 related alerts into INC-2026-0001"
+    - "Analysed reported e-mail with `soctk phish` - score 100/100, lookalike domain + macro attachment"
+    - "Built host timeline with `soctk timeline --pivot WS-FIN-017` to establish execution chain"
+    - "Extracted IOCs with `soctk ioc`; 3 matched the internal threat feed"
+  containment:
+    - "EDR network isolation of WS-FIN-017 at 08:58Z"
+    - "Firewall block 203.0.113.45; DNS sinkhole for both domains"
+    - "Password reset and token revocation for mrivera; MFA re-enrolment"
+  eradication:
+    - "Removed scheduled task OneDriveUpd and C:\\Users\\Public\\upd.dll (hash preserved)"
+    - "Full EDR scan of finance OU for both hashes - no further hits"
+    - "Host reimaged from gold image rather than cleaned in place"
+  recovery:
+    - "Host returned to user 13:05Z after reimage and EDR re-enrolment"
+    - "Enhanced monitoring on mrivera and finance share for 14 days"
+
+evidence:
+  - "Original .eml (sha256 recorded in evidence log), EDR process tree export, network flow export (08:00-10:00Z)"
+  - "Memory image of WS-FIN-017 captured before isolation release"
+  - "Copy of upd.dll and Invoice_Q3_8812.docm in malware share (password-protected)"
+
+lessons_learned:
+  - "Mark-of-the-Web macro blocking was not applied to the finance OU - policy gap, not user failure"
+  - "User reported the e-mail 9 minutes after opening it; report button worked as designed"
+  - "Beacon interval (15 min, low jitter) was visible in proxy logs - candidate for a new detection"
+
+recommendations:
+  - "Enforce 'Block macros from the internet' GPO across all OUs (owner: Endpoint Eng, due 2026-10-31)"
+  - "Add proxy beaconing detection: same dst, fixed interval, < 10% jitter, > 4 connections"
+  - "Add cdn-assets-example.com pattern to mail gateway lookalike rules"

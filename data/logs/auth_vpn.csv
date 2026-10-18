@@ -1,0 +1,3 @@
+timestamp,host,user,src_ip,event_id,logon_type,outcome,reason
+2026-10-14T07:59:00+00:00,VPN-GW-01,tgarcia,198.51.100.23,VPN,VPN,success,geo=RO
+2026-10-14T06:40:00+00:00,VPN-GW-01,tgarcia,203.0.113.9,VPN,VPN,success,geo=US

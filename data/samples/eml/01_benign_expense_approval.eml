@@ -1,0 +1,26 @@
+Return-Path: <notifications@corp.example.com>
+Received: from mail-out.corp.example.com (mail-out.corp.example.com [203.0.113.10])
+ by mx.example.com (Postfix) with ESMTPS id 7A1B2C3D4E
+ for <mrivera@example.com>; Tue, 14 Oct 2026 07:58:11 +0000
+Received: from app-01.corp.example.com (app-01.corp.example.com [10.10.1.22])
+ by mail-out.corp.example.com (Postfix) with ESMTP id 5F6E7D8C9B;
+ Tue, 14 Oct 2026 07:58:09 +0000
+Authentication-Results: mx.example.com; spf=pass smtp.mailfrom=corp.example.com;
+ dkim=pass header.d=corp.example.com; dmarc=pass header.from=corp.example.com
+From: "Expense System" <notifications@corp.example.com>
+To: mrivera@example.com
+Subject: Your expense report ER-2291 was approved
+Date: Tue, 14 Oct 2026 07:58:09 +0000
+Message-ID: <er-2291.approval@app-01.corp.example.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Hi Maria,
+
+Your expense report ER-2291 (USD 142.50, client lunch) was approved by J. Chen.
+Reimbursement will appear on the next payroll run.
+
+You can view the report at https://expenses.corp.example.com/reports/2291
+
+Thanks,
+Expense System

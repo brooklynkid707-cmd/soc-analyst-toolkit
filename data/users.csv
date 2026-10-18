@@ -1,0 +1,14 @@
+username,risk,department,title,mfa_enrolled
+mrivera,medium,finance,Analyst,true
+jchen,low,finance,Analyst,true
+akowalski,low,engineering,Analyst,true
+dpatel,low,engineering,Analyst,true
+sokafor,medium,hr,Analyst,true
+lnguyen,low,marketing,Analyst,true
+bthompson,low,marketing,Analyst,true
+ceo.vharlan,high,executive,Chief Executive,true
+tgarcia,low,sales,Analyst,true
+svc_backup,high,it,Service account,false
+svc_sql,high,it,Service account,false
+admin.rfoster,high,it,Domain admin,true
+helpdesk1,medium,it,Analyst,true

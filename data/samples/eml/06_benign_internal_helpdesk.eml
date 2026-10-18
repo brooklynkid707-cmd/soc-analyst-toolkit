@@ -1,0 +1,22 @@
+Return-Path: <helpdesk@example.com>
+Received: from exch-01.corp.example.com (exch-01.corp.example.com [10.10.1.30])
+ by mx.example.com (Postfix) with ESMTP id 5E6F7A8B9C
+ for <sokafor@example.com>; Tue, 14 Oct 2026 11:05:02 +0000
+Authentication-Results: mx.example.com; spf=pass smtp.mailfrom=example.com;
+ dkim=pass header.d=example.com; dmarc=pass header.from=example.com
+From: "IT Helpdesk" <helpdesk@example.com>
+To: sokafor@example.com
+Subject: Ticket #44819 - your VPN certificate renewal is scheduled
+Date: Tue, 14 Oct 2026 11:05:00 +0000
+Message-ID: <44819.renewal@exch-01.corp.example.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Hi Samuel,
+
+Your VPN certificate will be renewed automatically on Friday during the
+maintenance window. No action is needed on your side.
+
+For status see https://helpdesk.example.com/tickets/44819
+
+IT Helpdesk

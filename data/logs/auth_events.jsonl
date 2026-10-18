@@ -1,0 +1,24 @@
+{"timestamp": "2026-10-14T06:59:00+00:00", "host": "SRV-WEB-03", "user": "svc_backup", "src_ip": "10.10.20.57", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T07:00:00+00:00", "host": "WS-ENG-118", "user": "dpatel", "src_ip": "10.10.20.10", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T07:03:00+00:00", "host": "SRV-DC-01", "user": "administrator", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:07+00:00", "host": "SRV-DC-01", "user": "administrator", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:14+00:00", "host": "SRV-DC-01", "user": "administrator", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:21+00:00", "host": "SRV-DC-01", "user": "backup", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:28+00:00", "host": "SRV-DC-01", "user": "tgarcia", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:35+00:00", "host": "SRV-DC-01", "user": "administrator", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:42+00:00", "host": "SRV-DC-01", "user": "jchen", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:49+00:00", "host": "SRV-DC-01", "user": "jchen", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:03:56+00:00", "host": "SRV-DC-01", "user": "jchen", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:04:03+00:00", "host": "SRV-DC-01", "user": "backup", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:04:10+00:00", "host": "SRV-DC-01", "user": "jchen", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:04:17+00:00", "host": "SRV-DC-01", "user": "backup", "src_ip": "198.51.100.23", "event_id": 4625, "logon_type": "Network", "outcome": "failure", "reason": "bad password"}
+{"timestamp": "2026-10-14T07:10:00+00:00", "host": "SRV-WEB-03", "user": "svc_backup", "src_ip": "10.10.20.53", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T07:17:00+00:00", "host": "LT-SALES-071", "user": "tgarcia", "src_ip": "10.10.20.13", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T08:01:00+00:00", "host": "SRV-DC-01", "user": "tgarcia", "src_ip": "198.51.100.23", "event_id": 4624, "logon_type": "Network", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T08:05:00+00:00", "host": "WS-FIN-017", "user": "mrivera", "src_ip": "10.10.20.10", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T10:02:00+00:00", "host": "WS-ENG-118", "user": "dpatel", "src_ip": "10.10.20.41", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T10:12:00+00:00", "host": "SRV-WEB-03", "user": "svc_backup", "src_ip": "10.10.20.49", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T10:31:00+00:00", "host": "LT-EXEC-001", "user": "ceo.vharlan", "src_ip": "10.10.20.52", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T10:52:00+00:00", "host": "LT-EXEC-001", "user": "ceo.vharlan", "src_ip": "10.10.20.19", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T14:08:00+00:00", "host": "SRV-FILE-02", "user": "svc_sql", "src_ip": "10.10.20.13", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}
+{"timestamp": "2026-10-14T14:55:00+00:00", "host": "WS-MKT-045", "user": "bthompson", "src_ip": "10.10.20.23", "event_id": 4624, "logon_type": "Interactive", "outcome": "success", "reason": ""}

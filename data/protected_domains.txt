@@ -1,0 +1,8 @@
+# Domains the organisation and its key vendors send mail from; lookalikes of these are flagged
+example.com
+corp.example.com
+example-bank.com
+microsoft.com
+paypal.com
+docusign.com
+okta.com

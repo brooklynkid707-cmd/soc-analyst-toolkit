@@ -1,0 +1,15 @@
+indicator,type,verdict,source,tags,first_seen
+203.0.113.45,ipv4,malicious,internal-honeypot,"c2,cobalt-strike",2026-10-01
+198.51.100.23,ipv4,malicious,partner-isac,"brute-force,scanner",2026-09-28
+192.0.2.200,ipv4,suspicious,open-feed,tor-exit,2026-10-10
+update-service.example.net,domain,malicious,internal-honeypot,"c2,dga",2026-10-03
+cdn-assets-example.com,domain,malicious,partner-isac,"phishing,credential-harvest",2026-10-05
+secure-login-example.com,domain,malicious,user-report,phishing,2026-10-12
+micros0ft-support.com,domain,malicious,user-report,"phishing,lookalike",2026-10-12
+hxxp://update-service[.]example[.]net/gate.php,url,malicious,sandbox,c2-checkin,2026-10-03
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,sha256,benign,nsrl,empty-file,2020-01-01
+44d88612fea8a8f36de82e1278abb02f,md5,malicious,eicar,test-file,2020-01-01
+3395856ce81f2b7382dee72602f798b642f14140,sha1,malicious,eicar,test-file,2020-01-01
+275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f,sha256,malicious,eicar,test-file,2020-01-01
+invoice-team@cdn-assets-example.com,email,malicious,user-report,phishing-sender,2026-10-05
+CVE-2024-21413,cve,exploited,cisa-kev,"outlook,monikerlink",2024-02-13

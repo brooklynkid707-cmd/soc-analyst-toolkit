@@ -1,0 +1,16 @@
+hostname,criticality,owner,ip,os
+WS-FIN-017,high,finance,10.10.20.10,Windows 11
+WS-FIN-022,high,finance,10.10.20.11,Windows 11
+WS-ENG-104,medium,engineering,10.10.20.12,Windows 11
+WS-ENG-118,medium,engineering,10.10.20.13,Windows 11
+WS-HR-003,medium,hr,10.10.20.14,Windows 11
+WS-MKT-041,low,marketing,10.10.20.15,Windows 11
+WS-MKT-045,low,marketing,10.10.20.16,Windows 11
+LT-EXEC-001,crown-jewel,executive,10.10.20.17,Windows 11
+LT-SALES-071,low,sales,10.10.20.18,Windows 11
+SRV-DC-01,crown-jewel,it,10.10.1.19,Windows Server 2022
+SRV-FILE-02,high,it,10.10.1.20,Windows Server 2022
+SRV-WEB-03,high,it,10.10.1.21,Windows Server 2022
+SRV-DB-04,crown-jewel,it,10.10.1.22,Windows Server 2022
+SRV-JUMP-05,high,it,10.10.1.23,Windows Server 2022
+SRV-BKP-06,crown-jewel,it,10.10.1.24,Windows Server 2022

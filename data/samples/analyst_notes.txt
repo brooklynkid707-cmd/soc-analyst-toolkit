@@ -1,0 +1,14 @@
+Analyst notes - INC-2026-0142 (pasted from chat, defanged)
+
+User mrivera reported mail from invoice-team@cdn-assets-example[.]com at 08:14Z.
+Macro doc Invoice_Q3_8812.docm sha256 9f2c1e8ab7d64c3f0a5e2b19d8c7f6a4e3b2c1d0f9e8d7c6b5a4f3e2d1c0b9a8
+Loader upd.dll sha256 4b1d0e8c6f2a9b3c7d5e1f0a8b6c4d2e9f7a5b3c1d0e8f6a4b2c0d8e6f4a2b1c, md5 44d88612fea8a8f36de82e1278abb02f
+Beacon: hxxp://update-service[.]example[.]net/gate.php every 15 min -> 203[.]0[.]113[.]45:443
+Second stage pulled from hxxps://cdn-assets-example(.)com/assets/upd.bin
+Workstation 10.10.20.10 (WS-FIN-017), DC at 10.10.1.10, loopback test 127.0.0.1
+Brute force source earlier today: 198.51.100.23 against SRV-DC-01
+IPv6 seen in proxy logs: 2001:db8:85a3::8a2e:370:7334 and fe80::1
+Possibly related to CVE-2024-21413 (Outlook MonikerLink) - unconfirmed
+Mention of eicar test sha1 3395856ce81f2b7382dee72602f798b642f14140 from AV logs
+Also saw www.example.com (corporate site, benign) and secure-login-example.com
+Timestamps 08:24:05 and 09:10:00 are not IPs. svchost.exe and report.pdf are filenames.
